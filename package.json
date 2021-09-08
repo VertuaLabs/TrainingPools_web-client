@@ -1,0 +1,70 @@
+{
+  "name": "celltonomy.com",
+  "version": "0.1.0",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "start": "npm run build:staging:vars & craco start",
+    "build": "craco build",
+    "build:staging": "npm run build:staging:vars && npm run build:_:css && npm run build",
+    "build:staging:vars": "cp .env.development .env",
+    "build:production": "npm run build:production:vars && npm run build:_:css && npm run build",
+    "build:production:vars": "cp .env.prod .env",
+    "build:_:css": "npx tailwindcss-cli build ./src/styles/tailwind.css -o ./src/styles/index.css",
+    "test": "craco test",
+    "use:staging": "firebase use celltonomy--dev",
+    "use:production": "firebase use celltonomy--production",
+    "deploy:staging": "npm run build:staging && npm run use:staging && firebase deploy",
+    "deploy:production": "npm run build:production && npm run use:production && firebase deploy"
+  },
+  "dependencies": {
+    "@craco/craco": "^6.1.2",
+    "@headlessui/react": "^1.2.0",
+    "@heroicons/react": "^1.0.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-helmet": "^6.1.1",
+    "firebase": "^8.3.1",
+    "formik": "^2.2.6",
+    "nanoid": "^3.1.23",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-query": "^3.13.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.14.2",
+    "@tailwindcss/postcss7-compat": "^2.0.4",
+    "@types/react": "^17.0.3",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

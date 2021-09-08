@@ -1,0 +1,5 @@
+.black-chrome-gradient {
+  background: -webkit-linear-gradient(360deg, #1c1c1c 10%, #494949 360%);
+  background: -moz-linear-gradient(360deg, #1c1c1c 10%, #494949 360%);
+  background: linear-gradient(360deg, #1c1c1c 10%, #494949 360%);
+}

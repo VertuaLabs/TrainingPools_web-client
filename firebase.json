@@ -1,0 +1,39 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+  "headers": [
+    {
+    "source": "**/*.@(jpe?g|gif|png|css|jsx?)",
+    "headers": [
+      {
+      "key": "Cache-Control",
+      "value": "max-age=7200"
+      }
+    ]
+    },
+    {
+    "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+    "headers": [
+      {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+      }
+    ]
+    }
+  ],
+  "redirects": [],
+  "rewrites": [
+    {
+    "source": "**",
+    "destination": "/index.html"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+  }
+}
